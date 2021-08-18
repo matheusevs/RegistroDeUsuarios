@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <!-- Meta tags Obrigatórias -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+        <!-- HTML5Shiv -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <![endif]-->
+
+        <!-- Normalize CSS -->
+        <link rel="stylesheet" type="text/css" href="normalize.css">
+
+        <!-- Estilo customizado -->
+        <link rel="stylesheet" type="text/css" href="estilo.css">
+
+        <!-- Script -->
+        <script type="text/javascript" src="script.js"></script>
+
+        <title></title>
+    </head>
+
+
+
+    <!--Criar um sistema de registro de usuários
+
+        1. Deve-se criar uma tabela que irá listar os usuários cadastrados (inicialmente vai estar vazia).
+        2. A tabela deverá conter as informações: Nome, E-mail, Telefone, Data de nascimento, Sexo.
+        3. Deve-se possibilitar ao usuário criar um novo usuário informando os campos presentes no item 2.
+        4. Ao clicar em salvar, uma nova linha contendo as informações do usuário deve ser adicionada na tabela.
+        5.  Deve-se possibilitar que o usuário remova uma pessoa da tabela, clicando sobre um ícone de 'X'
+    -->
+
+    <body id="fundo">   
+        <header><!-- Inicio do header -->
+            <nav class="navbar navbar-expand-sm fixed-top text-light navbar-transparente">
+                <div class="container">
+                    <i class="fas fa-users fa-3x pr-3"></i>
+                    <span class="display-4 d-none d-lg-block">Registro de usuários</span>
+                </div>
+            </nav>
+        </header><!-- Fim do header -->
+
+
+        <section id="home"><!-- Inicio da seção home -->
+            <div id="caixa_formulario" class="container pt-5 pb-5">
+                <div class="row">
+                    <h1 class="display-4 text-center col">Realize seu cadastro</h1>
+                </div>
+
+                <div class="row justify-content-center">
+                    <form id="formulario">
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-users icone"></i></span>
+                            </div>
+                            <label for="usuario"></label>
+                            <input required="required" class="form-control" type="text" id="usuario" placeholder="Digite seu usuário" name="usuarioText" maxlength="100">
+                        </div>
+
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="icone">@</i></span>
+                            </div>
+                            <input required="required" class="form-control" type="email" id="email" placeholder="Digite seu e-mail" name="emailText" >
+                        </div>
+
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-mobile-alt icone"></i></span>
+                            </div>
+                            <input type="text" required="required" class="form-control" id="telefone" placeholder="(11) 1 1111-1111" name="telefoneText" maxlength="16" onkeypress="mascara(this);" onblur="mascara(this);">
+                        </div>
+
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-birthday-cake icone"></i></span>
+                            </div>
+                            <input required="required" class="form-control" type="date" id="data" placeholder="dd-mm-yyyy" name="dataText">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="sexo" id="sexo">Informe seu sexo</label>
+                            <select class="form-control" id="sexos" name="sexoText" value= "nada">
+                                <option>Outros</option>
+                                <option>Masculino</option>
+                                <option>Feminino</option>
+                            </select>
+                        </div>
+
+                        <div id="botoes">
+                            <input id="botao1" class="btn btn-custom btn-branco" type="button" value="Salvar" onclick="adicionarDado(usuarioText, emailText, telefoneText, dataText, sexoText)">
+
+                            <input id="botao2" class="btn btn-custom btn-branco" type="button" value="Limpar Formulário" onclick="limparFormulario(usuarioText, emailText, telefoneText, dataText, sexoText)">
+                        </div>        
+                    </form>
+                </div>
+            </div>
+        </section><!-- Fim da seção home -->
+
+        <section id="home" class="d-flex"><!-- Inicio da seção home -->
+            <div class="container pt-5">
+                <div class="row">
+                    <h1 class="display-4 text-center col">Tabela de cadastros</h1>
+                </div>
+
+                <table id="tabela" class="table table-striped table-bordereds justify-content-center">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>E-mail</th>
+                            <th>Telefone</th>
+                            <th>Data de nascimento</th>
+                            <th>Sexo</th>
+                            <th><i class="far fa-trash-alt"></i></th>
+                        </tr>
+
+                    </thead>
+                </table>
+            </div>
+        </section><!-- Fim da seção home -->
+
+
+        <footer><!-- Início do rodapé -->
+           
+        </footer><!-- Fim do rodapé -->
+
+        <!-- JavaScript (Opcional) -->
+        <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+</html>

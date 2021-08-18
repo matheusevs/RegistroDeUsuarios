@@ -1,0 +1,136 @@
+#fundo{
+    background-color: #F0F8FF;
+    color: #59429d;
+}
+
+#caixa_formulario{
+    margin-top: 50px;
+    padding-bottom: 20px;
+}
+
+#formulario{
+    width: 70%;
+}
+
+#botao1{
+    float: left;
+    width: 45%;
+    margin-right: 5%;
+}
+
+#botao2{
+    width: 45%;
+    margin-left: 5%;
+}
+
+h1{
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    margin-bottom: 50px;
+    color: #59429d;
+}
+
+nav.navbar{
+    background: #59429d;
+}
+
+.btn-custom{
+    background-color: #F0F8FF;
+    color: #59429d;
+    border-radius: 500px;
+    -webkit-border-radius: 500px;
+    -moz-border-radius: 500px;
+    text-transform: uppercase;
+    transition: background 0.4s, color 0.4s;
+    padding: 10px 20px;
+}
+
+.btn-branco{
+    border: 2px solid #59429d;;
+}
+
+.btn-branco:hover{
+    background-color: #59429d;
+    color: #F0F8FF;
+}
+
+#formulario span.input-group-text{
+    width: 42px; height: 38px;
+    text-align: center;
+}
+
+tr:nth-of-type(1){
+    background-color: #59429d;
+    color: #F0F8FF;
+}
+
+tr:nth-of-type(even){
+    background-color: #e1edf7;
+}
+
+/* Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 575.98px){
+    h1.display-4.text-center.col{
+        font-size: 1.5em;
+    }
+
+    html{
+        margin: auto;
+    }
+
+    body{
+        font-size: 0.65em;
+    }
+
+    div#botoes{
+        width: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #botao1{
+        float: left;
+        width: auto;
+    }
+    #botao2{
+        width: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) and (max-width: 767.98px){
+    h1.display-4.text-center.col{
+        font-size: 2em;
+    }
+    #botao1{
+        margin-left: 30px;
+        float: left;
+        width: auto;
+    }
+    #botao2{
+        width: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) and (max-width: 991.98px){
+    h1.display-4.text-center.col{
+        font-size: 3em;
+    }
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) and (max-width: 1199.98px){
+    
+}
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px){
+    
+}
